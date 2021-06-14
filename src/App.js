@@ -1,23 +1,32 @@
 import React from "react";
 
 export default class App extends React.Component{
+  
   state = {
-    nome: "Dandara",
-    idade: 11,
-    cor: "azul"
+      name: "Dandara", 
+      counter: 0
+    };
+
+  handleClick = () => {
+    const { name } = this.state;
+    this.setState({ name: "Rhayssa" })
   }
- handleClick = () => {
-  let nomeAtual = this.state.nome === "Dandara" ? "Rhayssa Dandara" : "Dandara" 
-  this.setState({
-    nome: nomeAtual
-  })
-}
+
+  handleClickLink = (event) => {
+    event.preventDefault();
+    const { counter } = this.state;
+    this.setState({
+      counter: counter + 1
+    })
+  }
 
   render() {
+    const { name, counter } = this.state;
+
     return(
       <div>
-       <h1>{this.state.nome}</h1>
-       <button onClick={this.handleClick}>Clica aqui</button>
+       <h1 onClick={this.handleClick}>{name} {counter}</h1>
+       <a onClick={this.handleClickLink} href="https://github.com/">Este é um link</a>
       </div>
     )
   }
