@@ -1,32 +1,36 @@
 import React from "react";
 
 export default class App extends React.Component{
-  
   state = {
-      name: "Dandara", 
-      counter: 0
+      posts:[
+        {
+          id: 1,
+          title: "O título",
+          body: "O corpo"
+        },
+        {
+          id: 2,
+          title: "O título 2",
+          body: "O corpo 2"
+        },
+        {
+          id: 3,
+          title: "O título 3",
+          body: "O corpo 3"
+        }
+      ]
     };
 
-  handleClick = () => {
-    const { name } = this.state;
-    this.setState({ name: "Rhayssa" })
-  }
-
-  handleClickLink = (event) => {
-    event.preventDefault();
-    const { counter } = this.state;
-    this.setState({
-      counter: counter + 1
-    })
-  }
-
   render() {
-    const { name, counter } = this.state;
-
+    const { posts } = this.state
     return(
       <div>
-       <h1 onClick={this.handleClick}>{name} {counter}</h1>
-       <a onClick={this.handleClickLink} href="https://github.com/">Este é um link</a>
+       {posts.map(posts =>(
+         <div>
+           <h1 key={posts.id}>{posts.title}</h1>
+           <p>{posts.body}</p>
+         </div>
+       ))}
       </div>
     )
   }
