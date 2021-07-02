@@ -29,14 +29,8 @@ export default class App extends React.Component {
     return (
       <section className="container">
         <div className="posts">
-          {posts.map((posts, index) => (
-            <div className="post">
-              <img src={posts.cover} alt={posts.title}/>
-              <div key={posts.body} className="post-content">
-                <h1 key={posts.id}>{posts.title}</h1>
-                <p key={index}>{posts.body}</p>
-              </div>
-            </div>
+          {posts.map(post => (
+            
           ))}
         </div>
       </section>
